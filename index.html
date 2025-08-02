@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parama - Premium Clothing Brand</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-card:hover .product-overlay {
+            opacity: 1;
+        }
+        
+        .product-overlay {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #000;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-2xl font-bold text-gray-900">PARAMA</span>
+                    </div>
+                    <div class="hidden md:ml-8 md:flex md:space-x-8">
+                        <a href="#home" class="nav-link text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">Home</a>
+                        <a href="#shop" class="nav-link text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">Shop</a>
+                        <a href="#collections" class="nav-link text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">Collections</a>
+                        <a href="#about" class="nav-link text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">About</a>
+                        <a href="#contact" class="nav-link text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-gray-700 relative">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-black">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden bg-white shadow-lg">
+            <div class="pt-2 pb-4 space-y-1">
+                <a href="#home" class="block pl-3 pr-4 py-2 border-l-4 border-black text-base font-medium text-black">Home</a>
+                <a href="#shop" class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300">Shop</a>
+                <a href="#collections" class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300">Collections</a>
+                <a href="#about" class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300">About</a>
+                <a href="#contact" class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300">Contact</a>
+                <div class="pt-4 pb-2 px-4 flex space-x-4">
+                    <a href="#" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-gray-700 relative">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg pt-16 min-h-screen flex items-center justify-center text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">ELEVATE YOUR STYLE</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Discover the perfect blend of comfort and sophistication with Parama's premium clothing collection.</p>
+            <a href="#shop" class="inline-block bg-white text-black px-8 py-3 font-medium hover:bg-gray-100 transition duration-300">SHOP NOW</a>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="shop" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">FEATURED COLLECTION</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Our carefully curated selection of premium clothing designed for the modern individual.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card group relative">
+                    <div class="w-full aspect-square overflow-hidden bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=736&q=80" alt="Premium T-Shirt" class="w-full h-full object-cover">
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-lg font-medium text-gray-900">Essential Cotton Tee</h3>
+                        <p class="mt-1 text-sm text-gray-700">$39.99</p>
+                    </div>
+                    <div class="product-overlay absolute inset-0 bg-black bg-opacity-50 opacity-0 flex items-center justify-center">
+                        <button class="bg-white text-black px-6 py-2 font-medium hover:bg-gray-100 transition duration-300">ADD TO CART</button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card group relative">
+                    <div class="w-full aspect-square overflow-hidden bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80" alt="Premium Hoodie" class="w-full h-full object-cover">
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-lg font-medium text-gray-900">Classic Hoodie</h3>
+                        <p class="mt-1 text-sm text-gray-700">$79.99</p>
+                    </div>
+                    <div class="product-overlay absolute inset-0 bg-black bg-opacity-50 opacity-0 flex items-center justify-center">
+                        <button class="bg-white text-black px-6 py-2 font-medium hover:bg-gray-100 transition duration-300">ADD TO CART</button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card group relative">
+                    <div class="w-full aspect-square overflow-hidden bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1595341595379-cf2a0a123b8e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Premium Jacket" class="w-full h-full object-cover">
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-lg font-medium text-gray-900">Urban Jacket</h3>
+                        <p class="mt-1 text-sm text-gray-700">$129.99</p>
+                    </div>
+                    <div class="product-overlay absolute inset-0 bg-black bg-opacity-50 opacity-0 flex items-center justify-center">
+                        <button class="bg-white text-black px-6 py-2 font-medium hover:bg-gray-100 transition duration-300">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#collections" class="inline-block border border-black text-black px-8 py-3 font-medium hover:bg-black hover:text-white transition duration-300">VIEW ALL PRODUCTS</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections -->
+    <section id="collections" class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">OUR COLLECTIONS</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explore our seasonal collections designed to elevate your wardrobe.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="relative group overflow-hidden h-96">
+                    <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Summer Collection" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <h3 class="text-2xl font-bold mb-2">SUMMER 2023</h3>
+                            <a href="#" class="inline-block border border-white text-white px-6 py-2 font-medium hover:bg-white hover:text-black transition duration-300">SHOP NOW</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden h-96">
+                    <img src="https://images.unsplash.com/photo-1605000797499-2059c22ee3f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80" alt="Winter Collection" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <h3 class="text-2xl font-bold mb-2">WINTER 2023</h3>
+                            <a href="#" class="inline-block border border-white text-white px-6 py-2 font-medium hover:bg-white hover:text-black transition duration-300">SHOP NOW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="About Parama" class="w-full rounded-lg shadow-lg">
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">OUR STORY</h2>
+                    <p class="text-gray-600 mb-4">Founded in 2020, Parama was born from a passion for creating high-quality, sustainable clothing that doesn't compromise on style. Our mission is to provide timeless pieces that elevate your everyday wardrobe.</p>
+                    <p class="text-gray-600 mb-6">Every garment is crafted with attention to detail, using premium materials sourced from ethical suppliers. We believe in slow fashion - creating pieces that last beyond seasonal trends.</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <div class="bg-gray-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-leaf text-green-500"></i>
+                            </div>
+                            <span class="text-gray-700">Sustainable Materials</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-gray-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-tshirt text-green-500"></i>
+                            </div>
+                            <span class="text-gray-700">Premium Quality</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-gray-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-globe-americas text-green-500"></i>
+                            </div>
+                            <span class="text-gray-700">Ethical Production</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-gray-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-heart text-green-500"></i>
+                            </div>
+                            <span class="text-gray-700">Timeless Designs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">WHAT OUR CUSTOMERS SAY</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Don't just take our word for it - hear from our satisfied customers.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"The quality of Parama's clothing is unmatched. I've had my hoodie for over a year and it still looks brand new."</p>
+                    <div class="flex items-center">
+                        <div class="h-10 w-10 rounded-full bg-gray-300 mr-3 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah J." class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-900">Sarah J.</h4>
+                            <p class="text-sm text-gray-500">Verified Customer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"I love the minimalist design aesthetic. These pieces work perfectly for both casual and dressier occasions."</p>
+                    <div class="flex items-center">
+                        <div class="h-10 w-10 rounded-full bg-gray-300 mr-3 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael T." class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-900">Michael T.</h4>
+                            <p class="text-sm text-gray-500">Verified Customer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"The customer service is exceptional. When I had an issue with sizing, they resolved it immediately. Will definitely shop again!"</p>
+                    <div class="flex items-center">
+                        <div class="h-10 w-10 rounded-full bg-gray-300 mr-3 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Jessica L." class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-900">Jessica L.</h4>
+                            <p class="text-sm text-gray-500">Verified Customer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-black text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-6">JOIN OUR COMMUNITY</h2>
+            <p class="text-gray-300 mb-8 max-w-2xl mx-auto">Subscribe to our newsletter for exclusive offers, new arrivals, and style inspiration.</p>
+            <form class="max-w-md mx-auto flex">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 text-black focus:outline-none">
+                <button type="submit" class="bg-white text-black px-6 py-3 font-medium hover:bg-gray-200 transition duration-300">SUBSCRIBE</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16">
+                <div class="mb-12 lg:mb-0">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">GET IN TOUCH</h2>
+                    <p class="text-gray-600 mb-8">Have questions about our products or need assistance with your order? Our team is here to help.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-gray-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-gray-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900">Our Location</h4>
+                                <p class="text-gray-600">123 Fashion Avenue, New York, NY 10001</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-gray-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-gray-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900">Email Us</h4>
+                                <p class="text-gray-600">hello@paramaclothing.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-gray-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-gray-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900">Call Us</h4>
+                                <p class="text-gray-600">+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-medium text-gray-900 mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-gray-100 p-3 rounded-full hover:bg-gray-200 transition duration-300">
+                                <i class="fab fa-instagram text-gray-700"></i>
+                            </a>
+                            <a href="#" class="bg-gray-100 p-3 rounded-full hover:bg-gray-200 transition duration-300">
+                                <i class="fab fa-facebook-f text-gray-700"></i>
+                            </a>
+                            <a href="#" class="bg-gray-100 p-3 rounded-full hover:bg-gray-200 transition duration-300">
+                                <i class="fab fa-twitter text-gray-700"></i>
+                            </a>
+                            <a href="#" class="bg-gray-100 p-3 rounded-full hover:bg-gray-200 transition duration-300">
+                                <i class="fab fa-pinterest-p text-gray-700"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">SEND US A MESSAGE</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-black">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-black">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-black">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-black"></textarea>
+                        </div>
+                        <button type="submit" class="bg-black text-white px-6 py-3 font-medium hover:bg-gray-800 transition duration-300 w-full">SEND MESSAGE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">PARAMA</h3>
+                    <p class="text-gray-400">Premium clothing for the modern individual. Quality, sustainability, and style in every stitch.</p>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">SHOP</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">New Arrivals</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Best Sellers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Men's Collection</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Women's Collection</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">CUSTOMER SERVICE</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Shipping & Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Size Guide</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">LEGAL</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Parama Clothing. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-cc-visa"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-cc-mastercard"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-cc-amex"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-cc-paypal"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
